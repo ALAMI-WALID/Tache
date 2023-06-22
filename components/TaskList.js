@@ -27,22 +27,22 @@ export default function TaskList() {
         {item.title}
       </Text>
       {!item.completed ? (
-        <TouchableOpacity
-          style={styles.completeButton}
-          onPress={() => handleTaskCompletion(item.id)}
-        >
-          <Text style={styles.buttonText}>Terminer</Text>
-        </TouchableOpacity>
-      ) : (
-        <View style={styles.completedOptions}>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={styles.completeButton}
+            onPress={() => handleTaskCompletion(item.id)}
+          >
+            <Text style={styles.buttonText}>Terminer</Text>
+          </TouchableOpacity>
           <TouchableOpacity
             style={styles.deleteButton}
             onPress={() => handleDeleteTask(item.id)}
           >
             <Text style={styles.buttonText}>Supprimer</Text>
           </TouchableOpacity>
-          <Text style={styles.completedText}>(Terminée)</Text>
         </View>
+      ) : (
+        <Text style={styles.completedText}>(Terminée)</Text>
       )}
     </View>
   );
@@ -104,22 +104,21 @@ const styles = StyleSheet.create({
     textDecorationLine: 'line-through',
     color: '#aaa',
   },
+  buttonContainer: {
+    flexDirection: 'row',
+  },
   completeButton: {
     backgroundColor: '#ccc',
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 5,
-  },
-  completedOptions: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    marginRight: 10,
   },
   deleteButton: {
     backgroundColor: 'red',
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 5,
-    marginRight: 10,
   },
   buttonText: {
     color: '#fff',
