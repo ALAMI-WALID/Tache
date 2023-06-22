@@ -3,9 +3,7 @@ import { View, FlatList, TouchableOpacity, Text, TextInput, StyleSheet } from 'r
 
 export default function TaskList() {
   const [tasks, setTasks] = useState([
-    { id: 1, title: 'Tâche 1', completed: false },
-    { id: 2, title: 'Tâche 2', completed: false },
-    { id: 3, title: 'Tâche 3', completed: false },
+   
   ]);
   const [newTaskTitle, setNewTaskTitle] = useState('');
 
